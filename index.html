@@ -12,7 +12,7 @@
     <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Pinyon+Script&family=Rubik+Burned&display=swap" rel="stylesheet">
-    <style>
+      <style>
         /* Reset body and html */
         body, html {
             margin: 0;
@@ -21,10 +21,9 @@
             height: 100%;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            color: #fff;
         }
 
-        /* Video styling */
+        /* Style the video to cover the full screen */
         video {
             position: absolute;
             top: 50%;
@@ -32,35 +31,60 @@
             transform: translate(-50%, -50%);
             min-width: 100%;
             min-height: 100%;
-            z-index: -1;
+            z-index: -1; /* Places video in the background */
         }
 
-        /* Centered text styling */
-        .centered-text {
+        /* Mute button styling */
+        .mute-button {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 1;
-            font-family: 'Rubik Burned', cursive; /* Custom font from Google Fonts */
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1; /* Ensures the button stays on top */
         }
 
-        .centered-text h1 {
-            font-size: 3rem;
-            margin: 0;
+        /* Button text change when muted */
+        .muted .mute-button {
+            background: rgba(255, 0, 0, 0.5); /* Red background when muted */
+        }
+
+        .mute-button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-    <video autoplay loop>
+    <video id="background-video" autoplay muted loop>
         <source src="background-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <div class="centered-text">
-        <h1>Far Out</h1>
-        <p></p>
-    </div>
+    <!-- Mute button -->
+    <button class="mute-button" id="muteButton">Unmute</button>
+
+    <script>
+        // Get the video and button elements
+        const video = document.getElementById('background-video');
+        const muteButton = document.getElementById('muteButton');
+
+        // Add event listener for the mute/unmute button
+        muteButton.addEventListener('click', function() {
+            // Toggle muted property
+            video.muted = !video.muted;
+
+            // Change button text based on the muted state
+            if (video.muted) {
+                muteButton.textContent = 'Unmute';
+            } else {
+                muteButton.textContent = 'Mute';
+            }
+        });
+    </script>
 </body>
 </html>
