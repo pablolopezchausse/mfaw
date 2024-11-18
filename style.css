@@ -5,8 +5,8 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: Arial, sans-serif;
-    color: white;
+    font-family: Arial, sans-serif; /* Fallback font */
+    color: white; /* Set the default text color to white */
 }
 
 /* Video container to make the video full screen */
@@ -30,7 +30,7 @@ body, html {
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -1; /* Ensure video stays in the background */
 }
 
 /* Overlay content */
@@ -39,39 +39,11 @@ body, html {
     z-index: 1; /* Places content above the video */
     text-align: center;
     top: 50%;
-    transform: translateY(-50%);
-}
-@font-face {
-    font-family: 'MyFont';
-    src: url('fonts/my-font.ttf') format('truetype');
+    transform: translateY(-50%); /* Centers content vertically */
 }
 
-.centered-text {
-    font-family: 'MyFont', sans-serif; /* Use the custom font */
-
-    
-    .rubik-burned-regular {
-        font-family: "Rubik Burned", system-ui;
-        font-weight: 400;
-        font-style: normal;
-
-    }
-.pinyon-script-regular {
-  font-family: "Pinyon Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-     
-.pinyon-script-regular {
-    font-family: "Pinyon Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .neonderthaw-regular {
-    font-family: "Neonderthaw", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
+/* Rubik Burned Font */
+.rubik-burned {
+    font-family: 'Rubik Burned', sans-serif; /* Apply Rubik Burned font */
+    color: white; /* Set text color to white */
 }
