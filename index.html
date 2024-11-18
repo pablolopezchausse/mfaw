@@ -33,7 +33,22 @@
             min-height: 100%;
             z-index: -1; /* Places video in the background */
         }
+ /* Centered text styling */
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+            font-family: 'Rubik Burned', cursive; /* Custom font from Google Fonts */
+        }
 
+        .centered-text h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+          
         /* Mute button styling */
         .mute-button {
             position: absolute;
