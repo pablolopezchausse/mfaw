@@ -6,7 +6,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: white;
 }
 
 /* Video container to make the video full screen */
