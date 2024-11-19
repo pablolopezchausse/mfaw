@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Test</title>
     <!-- Google Font -->
-    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Pinyon+Script&family=Rubik+Burned&display=swap" rel="stylesheet">
-      <style>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
         /* Reset body and html */
         body, html {
             margin: 0;
@@ -34,7 +32,7 @@
             z-index: -1; /* Places video in the background */
         }
           
-          /* Centered text styling */
+        /* Centered text styling */
         .centered-text {
             position: absolute;
             top: 50%;
@@ -58,16 +56,18 @@
             background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 10px;
+            font-size: 24px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 50%;
             z-index: 1; /* Ensures the button stays on top */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Button text change when muted */
-        .muted .mute-button {
-            background: rgba(255, 0, 0, 0.5); /* Red background when muted */
+        .mute-button i {
+            pointer-events: none; /* Prevent click events on the icon */
         }
 
         .mute-button:hover {
@@ -87,25 +87,31 @@
     </video>
 
     <!-- Mute button -->
-    <button class="mute-button" id="muteButton">Unmute</button>
+    <button class="mute-button" id="muteButton">
+        <i class="fas fa-volume-mute"></i> <!-- Default icon for muted state -->
+    </button>
 
     <script>
         // Get the video and button elements
         const video = document.getElementById('background-video');
         const muteButton = document.getElementById('muteButton');
+        const icon = muteButton.querySelector('i');
 
         // Add event listener for the mute/unmute button
         muteButton.addEventListener('click', function() {
             // Toggle muted property
             video.muted = !video.muted;
 
-            // Change button text based on the muted state
+            // Change the icon based on the muted state
             if (video.muted) {
-                muteButton.textContent = 'Unmute';
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
             } else {
-                muteButton.textContent = 'Mute';
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
             }
         });
     </script>
 </body>
 </html>
+
