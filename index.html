@@ -32,20 +32,27 @@
             z-index: -1; /* Places video in the background */
         }
           
-        /* Centered text styling */
-        .centered-text {
+        /* Centered image link styling */
+        .centered-link {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 1;
-            font-family: 'Rubik Burned', cursive; /* Custom font from Google Fonts */
         }
 
-        .centered-text h1 {
-            font-size: 7rem;
-            margin: 0;
+        .centered-link img {
+            max-width: 500px; /* Adjust the image size as needed */
+            height: auto;
+            cursor: pointer;
+            transition: filter 0.3s ease, transform 0.3s ease; /* Smooth effect */
+        }
+
+        /* Hover effect: darken image and slightly scale */
+        .centered-link img:hover {
+            filter: brightness(0.7); /* Darken effect */
+            transform: scale(1.05); /* Slight zoom-in effect */
         }
           
         /* Mute button styling */
@@ -76,11 +83,13 @@
     </style>
 </head>
 <body>
-    <div class="centered-text">
-        <h1>FarOut</h1>
-        <p></p>
+    <!-- Replace "FarOut" with an image -->
+    <div class="centered-link">
+        <a href="newpage2.html">
+            <img src="text.png" alt="FarOut">
+        </a>
     </div>
-    
+
     <video id="background-video" autoplay muted loop>
         <source src="background-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -114,4 +123,3 @@
     </script>
 </body>
 </html>
-
