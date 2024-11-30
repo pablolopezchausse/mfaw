@@ -62,7 +62,7 @@
             filter: brightness(0.7); /* Darken effect */
             transform: scale(1.05); /* Slight zoom-in effect */
         }
-          
+
         /* Mute button styling */
         .mute-button {
             position: absolute;
@@ -88,44 +88,41 @@
         .mute-button:hover {
             background: rgba(0, 0, 0, 0.8);
         }
+
+        /* Links list styling */
+        .links {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: left;
+            color: white;
+            font-family: 'Rubik Burned', cursive; /* Custom font */
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #ffcc00; /* Gold color on hover */
+        }
+
+        .links li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .links li::before {
+            content: "◌";
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <!-- Replace "FarOut" with an image -->
-    <div class="centered-link">
-        <img src="text.png" alt="FarOut">
-    </div>
-
-    <video id="background-video" autoplay muted loop>
-        <source src="background-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Mute button -->
-    <button class="mute-button" id="muteButton">
-        <i class="fas fa-volume-mute"></i> <!-- Default icon for muted state -->
-    </button>
-
-    <script>
-        // Get the video and button elements
-        const video = document.getElementById('background-video');
-        const muteButton = document.getElementById('muteButton');
-        const icon = muteButton.querySelector('i');
-
-        // Add event listener for the mute/unmute button
-        muteButton.addEventListener('click', function() {
-            // Toggle muted property
-            video.muted = !video.muted;
-
-            // Change the icon based on the muted state
-            if (video.muted) {
-                icon.classList.remove('fa-volume-up');
-                icon.classList.add('fa-volume-mute');
-            } else {
-                icon.classList.remove('fa-volume-mute');
-                icon.classList.add('fa-volume-up');
-            }
-        });
-    </script>
-</body>
-</html>
+    <div class="centered
