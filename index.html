@@ -3,97 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinyl Page</title>
+    <title>Video Test</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Pinyon+Script&family=Rubik+Burned&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+    <meta property="og:title" content="mfaw" />
+    <meta property="og:description" content="mforawhile" />
+    <meta property="og:image" content="https://yourwebsite.com/path-to-image/img.png" />
+    <meta property="og:url" content="https://m-f-a-w.com" />
+    <meta property="og:type" content="website" />
+
+    </head>
+
     <style>
-        /* General Reset */
+        /* Reset body and html */
         body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            display: flex;
-            align-items: center; /* Center items vertically */
-            justify-content: center; /* Center items horizontally */
-            min-height: 100vh; /* Full screen height */
         }
 
-        /* Container for all content */
-        .content {
-            text-align: center; /* Center-align text inside the container */
+        /* Style the video to cover the full screen */
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Places video in the background */
+        }
+          
+        /* Centered image link styling */
+        .centered-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
         }
 
-        /* Container for images */
-        .vinyl-images {
+        .centered-link img {
+            max-width: 500px; /* Adjust the image size as needed */
+            height: auto;
+            cursor: pointer;
+            transition: filter 0.3s ease, transform 0.3s ease; /* Smooth effect */
+        }
+
+        /* Hover effect: darken image and slightly scale */
+        .centered-link img:hover {
+            filter: brightness(0.7); /* Darken effect */
+            transform: scale(1.05); /* Slight zoom-in effect */
+        }
+          
+        /* Mute button styling */
+        .mute-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1; /* Ensures the button stays on top */
             display: flex;
             justify-content: center;
-            gap: 20px; /* Space between the images */
-            margin: 20px 0;
+            align-items: center;
         }
 
-        /* Vinyl Images */
-        .vinyl-image {
-            max-width: 260px;
-            width: 100%;
-            height: auto;
+        .mute-button i {
+            pointer-events: none; /* Prevent click events on the icon */
         }
 
-        /* Common styling for tracklist and credits */
-        .tracklist {
-            margin: 10px 0;
-            font-size: 0.8rem; /* Slightly smaller font size */
-            line-height: 1.6;
-        }
-
-        .credits {
-            margin: 20px 0;
-            font-size: 1rem; /* Larger font size for the credits */
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        /* PayPal Button */
-        .paypal-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
-            background-color: #0070ba;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .paypal-button:hover {
-            background-color: #005c9a;
+        .mute-button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <!-- Tracklist -->
-        <div class="tracklist">
-          
-        </div>
-
-        <!-- Vinyl Images -->
-        <div class="vinyl-images">
-            <img src="vinyl.jpg" alt="Vinyl Record 1" class="vinyl-image">
-            <img src="vinyl2.jpg" alt="Vinyl Record 2" class="vinyl-image">
-        </div>
-
-        <!-- Credits -->
-        <div class="credits">
-            The album is available for a donation of any amount. <br>
-            You can send your contribution through PayPal, and I will share a .zip file of the album with you. <br>
-            If you don’t use PayPal, feel free to contact me at pabloaltar@gmail.com.
-        </div>
-
-        <!-- PayPal Link -->
-        <a href="https://paypal.me/pabloaltar" target="_blank" class="paypal-button">
-            PayPal
+    <!-- Replace "FarOut" with an image -->
+    <div class="centered-link">
+        <a href="newpage.html">
+            <img src="text.png" alt="FarOut">
         </a>
     </div>
+
+    <video id="background-video" autoplay muted loop>
+        <source src="background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Mute button -->
+    <button class="mute-button" id="muteButton">
+        <i class="fas fa-volume-mute"></i> <!-- Default icon for muted state -->
+    </button>
+
+    <script>
+        // Get the video and button elements
+        const video = document.getElementById('background-video');
+        const muteButton = document.getElementById('muteButton');
+        const icon = muteButton.querySelector('i');
+
+        // Add event listener for the mute/unmute button
+        muteButton.addEventListener('click', function() {
+            // Toggle muted property
+            video.muted = !video.muted;
+
+            // Change the icon based on the muted state
+            if (video.muted) {
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            } else {
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            }
+        });
+    </script>
 </body>
 </html>
