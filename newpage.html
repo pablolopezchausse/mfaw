@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Page</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            min-height: 100vh; /* Full screen height */
+        }
+
+        /* Container for all content */
+        .content {
+            text-align: center; /* Center-align text inside the container */
+        }
+
+        /* Container for images */
+        .vinyl-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between the images */
+            margin: 20px 0;
+        }
+
+        /* Vinyl Images */
+        .vinyl-image {
+            max-width: 260px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Common styling for tracklist and credits */
+        .tracklist {
+            margin: 10px 0;
+            font-size: 0.8rem; /* Slightly smaller font size */
+            line-height: 1.6;
+        }
+
+        .credits {
+            margin: 20px 0;
+            font-size: 1rem; /* Larger font size for the credits */
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* PayPal Button */
+        .paypal-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #0070ba;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .paypal-button:hover {
+            background-color: #005c9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Tracklist -->
+        <div class="tracklist">
+          
+        </div>
+
+        <!-- Vinyl Images -->
+        <div class="vinyl-images">
+            <img src="vinyl.jpg" alt="Vinyl Record 1" class="vinyl-image">
+            <img src="vinyl2.jpg" alt="Vinyl Record 2" class="vinyl-image">
+        </div>
+
+        <!-- Credits -->
+        <div class="credits">
+            The album is available for a donation of any amount. <br>
+            You can send your contribution through PayPal, and I will share a .zip file of the album with you. <br>
+            If you don’t use PayPal, feel free to contact me at pabloaltar@gmail.com.
+        </div>
+
+        <!-- PayPal Link -->
+        <a href="https://paypal.me/pabloaltar" target="_blank" class="paypal-button">
+            PayPal
+        </a>
+    </div>
+</body>
+</html>
