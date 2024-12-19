@@ -5,8 +5,8 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: Arial, sans-serif; /* Fallback font */
-    color: white; /* Set the default text color to white */
+    font-family: "Rubik Burned", Arial, sans-serif; /* Default font for the entire website */
+    color: #fff; /* Default text color */
 }
 
 /* Video container to make the video full screen */
@@ -30,7 +30,7 @@ body, html {
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    z-index: -1; /* Ensure video stays in the background */
+    z-index: -1;
 }
 
 /* Overlay content */
@@ -39,11 +39,18 @@ body, html {
     z-index: 1; /* Places content above the video */
     text-align: center;
     top: 50%;
-    transform: translateY(-50%); /* Centers content vertically */
+    transform: translateY(-50%);
 }
 
-/* Rubik Burned Font */
-.rubik-burned {
-    font-family: 'Rubik Burned', sans-serif; /* Apply Rubik Burned font */
-    color: white; /* Set text color to white */
+/* Links styling */
+.link {
+    color: white; /* Matches the text color */
+    font-size: 2rem; /* Adjust this value as needed */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    font-family: "Rubik Burned", Arial, sans-serif; /* Ensures links use Rubik Burned */
+}
+
+.link:hover {
+    color: #FFD700; /* Changes color on hover (gold in this case) */
 }
