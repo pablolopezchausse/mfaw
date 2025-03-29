@@ -22,12 +22,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Rubik Burned', Arial, sans-serif; /* Set default font */
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #000000; /* Changed to black */
+            color: #ffffff; /* White text for contrast */
             display: flex;
             align-items: center; /* Center items vertically */
             justify-content: center; /* Center items horizontally */
             min-height: 100vh; /* Full screen height */
+            flex-direction: column;
         }
 
         /* Container for all content */
@@ -80,6 +81,19 @@
         .paypal-button:hover {
             background-color: #005c9a;
         }
+
+        /* Vinyl Link */
+        .vinyl-link {
+            display: block;
+            font-size: 3rem; /* Bigger emoji */
+            text-decoration: none;
+            margin-top: 20px; /* Space below images */
+            transition: transform 0.3s ease;
+        }
+
+        .vinyl-link:hover {
+            transform: scale(1.2); /* Slight zoom effect */
+        }
     </style>
 </head>
 <body>
@@ -95,8 +109,9 @@
             <img src="vinyl2.jpg" alt="Vinyl Record 2" class="vinyl-image">
         </div>
 
-        
-        </a>
+        <!-- Bandcamp Link with 💿 -->
+        <a href="https://pabloaltar.bandcamp.com/album/far-out" target="_blank" class="vinyl-link">💿</a>
     </div>
 </body>
 </html>
+
